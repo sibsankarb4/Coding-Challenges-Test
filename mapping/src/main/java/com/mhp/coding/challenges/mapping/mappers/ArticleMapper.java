@@ -35,12 +35,12 @@ public class ArticleMapper {
 			new_articleDto.setDescription(article.getDescription());
 			new_articleDto.setAuthor(article.getAuthor());
 			// for mapping and sorting the articles block
-			  Set articleBlocks = new HashSet();
+			 /*Set articleBlocks = new HashSet();
 			  articleBlocks = article.getBlocks(); 
 			  Collection<ArticleBlockDto> articleDtoBlocks = new TreeSet<ArticleBlockDto>(); 
 			  List<ArticleBlockDto>  articleDtoBlocks = new ArrayList<ArticleBlockDto>();
 			  articleDtoBlocks.addAll(articleBlocks); Collections.sort(articleDtoBlocks, new SortBySortIndex()); 
-			  new_articleDto.setBlocks(articleDtoBlocks);
+			  new_articleDto.setBlocks(articleDtoBlocks);*/
 			 
 		} catch (Exception e) {
 			logger.error("Exception : map() :: ", e);
