@@ -24,15 +24,16 @@ public class InquiryTest {
     @SpyBean
     private PushNotificationHandler pushNotificationHandler;
 
-    @Autowired
-    private InquiryService inquiryService;
-    
+    @Before
+	public void setup() throws Exception {
+	@Autowired
+    private InquiryService inquiryService;    
     @Autowired
     private EmailHandler emailHandlerService;
-
     @Autowired
     private PushNotificationHandler pushNotificationHandlerService;
-
+	}
+    
 
     @Test
     public void testInquiryHandlers() {
@@ -49,4 +50,11 @@ public class InquiryTest {
         verify(emailHandler).sendEmail(eq(inquiry));
         verify(pushNotificationHandler).sendNotification(eq(inquiry));
     }
+    
+    @After
+	public void cleanUp() {
+		inquiryService = null;
+        emailHandlerService = null;
+        pushNotificationHandlerService = null;
+	}
 }
