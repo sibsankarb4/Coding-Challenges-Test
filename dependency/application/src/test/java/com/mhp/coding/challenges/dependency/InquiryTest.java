@@ -25,14 +25,14 @@ public class InquiryTest {
     private PushNotificationHandler pushNotificationHandler;
 
     @Before
-	public void setup() throws Exception {
-	@Autowired
+    public void setup() throws Exception {
+    @Autowired
     private InquiryService inquiryService;    
     @Autowired
     private EmailHandler emailHandlerService;
     @Autowired
     private PushNotificationHandler pushNotificationHandlerService;
-	}
+    }
     
 
     @Test
@@ -53,7 +53,7 @@ public class InquiryTest {
     
     @After
 	public void cleanUp() {
-		inquiryService = null;
+	inquiryService = null;
         emailHandlerService = null;
         pushNotificationHandlerService = null;
 	}
