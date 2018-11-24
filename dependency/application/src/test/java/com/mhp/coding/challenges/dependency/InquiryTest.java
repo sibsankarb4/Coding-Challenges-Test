@@ -6,6 +6,8 @@ import com.mhp.coding.challenges.dependency.notifications.EmailHandler;
 import com.mhp.coding.challenges.dependency.notifications.PushNotificationHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,7 +19,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = Application.class)
 public class InquiryTest {
-
+    private static final Logger logger = LoggerFactory.getLogger(InquiryTest.class);
     @SpyBean
     private EmailHandler emailHandler;
 
@@ -42,7 +44,8 @@ public class InquiryTest {
         inquiry.setUsername("TestUser");
         inquiry.setRecipient("service@example.com");
         inquiry.setText("Can I have cheezburger?");
-     
+        logger.info(" Inquiry Details :: testInquiryHandlers() :: " + inquiry.toString());
+	 
         inquiryService.create(inquiry);
         emailHandlerService.sendEmail(inquiry);
         pushNotificationHandlerService.sendNotification(inquiry);
